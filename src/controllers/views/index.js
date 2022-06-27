@@ -25,10 +25,16 @@ const renderCreatePlaylistPage = (req, res) => {
   return res.sendFile(filePath);
 };
 
+const renderPlaylistPage = (req, res) => {
+  const filePath = path.join(__dirname, "../../../public/singlePlaylist.html");
+  return res.sendFile(filePath);
+};
+
 module.exports = {
   renderHomePage,
   renderLoginPage,
   renderSignupPage,
   renderDashboardPage,
   renderCreatePlaylistPage,
+  renderPlaylistPage,
 };

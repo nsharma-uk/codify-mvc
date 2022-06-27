@@ -6,6 +6,7 @@ const {
   renderSignupPage,
   renderDashboardPage,
   renderCreatePlaylistPage,
+  renderPlaylistPage,
 } = require("../../controllers/views");
 
 const router = Router();
@@ -15,5 +16,6 @@ router.get("/login", renderLoginPage);
 router.get("/signup", renderSignupPage);
 router.get("/dashboard", renderDashboardPage);
 router.get("/create-playlist", renderCreatePlaylistPage);
+router.get("/playlists/:id", renderPlaylistPage);
 
 module.exports = router;
