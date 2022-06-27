@@ -1,0 +1,16 @@
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
+
+.date-info,
+.error-text {
+  font-size: 12px;
+}
+
+.playlist-card {
+  width: 18rem;
+  margin: 10px;
+}
