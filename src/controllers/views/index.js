@@ -30,6 +30,11 @@ const renderPlaylistPage = (req, res) => {
   return res.sendFile(filePath);
 };
 
+const renderExplorePage = (req, res) => {
+  const filePath = path.join(__dirname, "../../../public/explore.html");
+  return res.sendFile(filePath);
+};
+
 module.exports = {
   renderHomePage,
   renderLoginPage,
@@ -37,4 +42,5 @@ module.exports = {
   renderDashboardPage,
   renderCreatePlaylistPage,
   renderPlaylistPage,
+  renderExplorePage,
 };
