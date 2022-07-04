@@ -29,8 +29,7 @@ const renderPlaylistPage = (req, res) => {
 };
 
 const renderExplorePage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/explore.html");
-  return res.sendFile(filePath);
+  return res.render("explore");
 };
 
 module.exports = {
