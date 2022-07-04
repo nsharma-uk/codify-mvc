@@ -6,11 +6,11 @@ const renderHomePage = (req, res) => {
 };
 
 const renderLoginPage = (req, res) => {
-  return res.render("login");
+  return res.render("login", { currentPage: "login" });
 };
 
 const renderSignupPage = (req, res) => {
-  return res.render("signup");
+  return res.render("signup", { currentPage: "signup" });
 };
 
 const renderDashboardPage = (req, res) => {

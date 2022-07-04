@@ -4,10 +4,11 @@ const exphbs = require("express-handlebars");
 
 const connection = require("./config/connection");
 const routes = require("./routes");
+const helpers = require("./helpers");
 
 const PORT = process.env.PORT || 4000;
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const app = express();
 
