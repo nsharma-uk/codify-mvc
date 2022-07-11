@@ -70,8 +70,17 @@ const renderPlaylistPage = (req, res) => {
   return res.sendFile(filePath);
 };
 
-const renderExplorePage = (req, res) => {
-  return res.render("explore");
+const renderExplorePage = async (req, res) => {
+  const playlistsFromDb = await Playlist.findAll({
+    where: { userId: req.session.user.id },
+    attributes: ["id", "title"],
+  });
+
+  const playlists = playlistsFromDb.map((playlist) => {
+    return playlist.get({ plain: true });
+  });
+
+  return res.render("explore", { playlists });
 };
 
 module.exports = {

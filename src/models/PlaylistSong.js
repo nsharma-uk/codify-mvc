@@ -37,7 +37,7 @@ const schema = {
     allowNull: false,
   },
   songDuration: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   albumShareLink: {
