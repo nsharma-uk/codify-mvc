@@ -2,10 +2,8 @@ const { User } = require("../../models");
 
 const login = async (req, res) => {
   try {
-    // get the user data from payload
     const { email, password } = req.body;
 
-    // get user by email address
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
@@ -19,7 +17,11 @@ const login = async (req, res) => {
     const isAuthorised = await user.checkPassword(password);
 
     if (isAuthorised) {
-      return res.json({ success: true });
+      req.session.save(() => {
+        req.session.isLoggedIn = true;
+        req.session.user = user.getUser();
+        return res.json({ success: true });
+      });
     } else {
       console.log(
         `[ERROR]: Failed to login | Incorrect password for email: ${email}`
@@ -36,10 +38,8 @@ const login = async (req, res) => {
 
 const signup = async (req, res) => {
   try {
-    // get the user data from payload
     const { firstName, lastName, email, password, profileImageUrl } = req.body;
 
-    // check if user exists
     const user = await User.findOne({ where: { email } });
 
     if (user) {
@@ -50,7 +50,6 @@ const signup = async (req, res) => {
       return res.status(500).json({ success: false });
     }
 
-    // create user
     await User.create({
       firstName,
       lastName,
@@ -67,7 +66,15 @@ const signup = async (req, res) => {
   }
 };
 
-const logout = (req, res) => {};
+const logout = (req, res) => {
+  if (req.session.isLoggedIn) {
+    req.session.destroy(() => {
+      return res.status(204).end();
+    });
+  } else {
+    return res.status(404).end();
+  }
+};
 
 module.exports = {
   login,

@@ -1,6 +1,7 @@
 const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const exploreForm = $("#explore-form");
+const logoutBtn = $("#logout-btn");
 
 const renderError = (id, message) => {
   const errorDiv = $(`#${id}`);
@@ -141,6 +142,23 @@ const handleLogin = async (event) => {
   }
 };
 
+const handleLogout = async () => {
+  try {
+    const response = await fetch("/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      window.location.assign("/");
+    }
+  } catch (error) {
+    console.log("Failed to logout");
+  }
+};
+
 const handleExplore = async (event) => {
   event.preventDefault();
 
@@ -181,3 +199,4 @@ const handleExplore = async (event) => {
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
 exploreForm.submit(handleExplore);
+logoutBtn.click(handleLogout);

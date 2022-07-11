@@ -14,8 +14,7 @@ const renderSignupPage = (req, res) => {
 };
 
 const renderDashboardPage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/dashboard.html");
-  return res.sendFile(filePath);
+  return res.render("dashboard");
 };
 
 const renderCreatePlaylistPage = (req, res) => {
