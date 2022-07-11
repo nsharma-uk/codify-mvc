@@ -1,0 +1,19 @@
+<div class="card text-center playlist-card">
+  <img src={{imageUrl}} class="card-img-top" alt={{title}} />
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{user.firstName}} {{user.lastName}}</p>
+    <a href="/playlists/{{id}}" class="btn btn-success position-relative">
+      View
+      <span
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+      >
+        {{songs.length}}
+        <span class="visually-hidden">comments</span>
+      </span>
+    </a>
+  </div>
+  <div class="card-footer text-muted date-info">
+    {{formatDate createdAt}}
+  </div>
+</div>

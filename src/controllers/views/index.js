@@ -1,9 +1,30 @@
 const path = require("path");
 
-const renderHomePage = (req, res) => {
+const { Playlist, User, PlaylistSong } = require("../../models");
+
+const renderHomePage = async (req, res) => {
+  const playlistsFromDb = await Playlist.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["firstName", "lastName"],
+      },
+      {
+        model: PlaylistSong,
+        as: "songs",
+      },
+    ],
+    attributes: ["id", "title", "imageUrl", "createdAt"],
+  });
+
+  const playlists = playlistsFromDb.map((playlist) => {
+    return playlist.get({ plain: true });
+  });
+
   return res.render("home", {
     isLoggedIn: req.session.isLoggedIn,
     currentPage: "home",
+    playlists,
   });
 };
 
@@ -15,8 +36,29 @@ const renderSignupPage = (req, res) => {
   return res.render("signup", { currentPage: "signup" });
 };
 
-const renderDashboardPage = (req, res) => {
-  return res.render("dashboard", { currentPage: "dashboard" });
+const renderDashboardPage = async (req, res) => {
+  const playlistsFromDb = await Playlist.findAll({
+    where: {
+      userId: req.session.user.id,
+    },
+    include: [
+      {
+        model: User,
+        attributes: ["firstName", "lastName"],
+      },
+      {
+        model: PlaylistSong,
+        as: "songs",
+      },
+    ],
+    attributes: ["id", "title", "imageUrl", "createdAt"],
+  });
+
+  const playlists = playlistsFromDb.map((playlist) => {
+    return playlist.get({ plain: true });
+  });
+
+  return res.render("dashboard", { currentPage: "dashboard", playlists });
 };
 
 const renderCreatePlaylistPage = (req, res) => {
