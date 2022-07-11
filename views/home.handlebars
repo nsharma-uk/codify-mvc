@@ -1,0 +1,176 @@
+{{#if isLoggedIn }}
+  {{> privateNavBar }}
+{{else}}
+  {{> publicNavBar }}
+{{/if}}
+
+<main class="container">
+  <!-- public banner -->
+  <section class="jumbotron text-center">
+    <h1 class="display-4 text-uppercase">Codify</h1>
+    <p class="lead">A one stop shop to all your music tastes...</p>
+    <hr class="my-4" />
+    <p>Why not start your music journey today!!</p>
+    {{#unless isLoggedIn}}
+      <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+    {{/unless}}
+  </section>
+
+  <!-- all playlists -->
+  <section>
+    <h2 class="text-center">Playlists</h2>
+    <hr />
+
+    <div class="d-flex justify-content-around flex-wrap">
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+
+      <!-- playlist card -->
+      <div class="card text-center playlist-card">
+        <img
+          src="https://images.unsplash.com/photo-1629276301687-be2af9fd6ba8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">Ghost Drive</h5>
+          <p class="card-text">Bob Smith</p>
+          <a href="/playlists/1" class="btn btn-success position-relative">
+            View
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              12
+              <span class="visually-hidden">comments</span>
+            </span>
+          </a>
+        </div>
+        <div class="card-footer text-muted date-info">
+          Created: 25th June, 2020
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

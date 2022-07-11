@@ -1,0 +1,30 @@
+{{> privateNavBar}}
+
+<main class="container">
+  <section class="mt-4 border p-3 rounded-2 bg-light">
+    <h2 class="text-center">Create Playlist</h2>
+    <hr />
+    <form class="mt-4" id="create-playlist-form">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          placeholder="Enter title of playlist"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="imageUrl"
+          placeholder="Enter image URL"
+        />
+      </div>
+      <div id="create-playlist-error"></div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </section>
+</main>

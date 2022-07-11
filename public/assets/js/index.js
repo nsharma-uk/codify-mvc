@@ -2,6 +2,7 @@ const signupForm = $("#signup-form");
 const loginForm = $("#login-form");
 const exploreForm = $("#explore-form");
 const logoutBtn = $("#logout-btn");
+const createPlaylistForm = $("#create-playlist-form");
 
 const renderError = (id, message) => {
   const errorDiv = $(`#${id}`);
@@ -196,7 +197,53 @@ const handleExplore = async (event) => {
   }
 };
 
+const handleCreatePlaylist = async (event) => {
+  event.preventDefault();
+
+  const title = $("#title").val();
+  const imageUrl = $("#imageUrl").val();
+
+  if (title && imageUrl) {
+    try {
+      const payload = {
+        title,
+        imageUrl,
+      };
+
+      const response = await fetch("/api/playlists", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        window.location.assign("/dashboard");
+      } else {
+        renderError(
+          "create-playlist-error",
+          "Failed to create a new playlist. Please try again."
+        );
+      }
+    } catch (error) {
+      renderError(
+        "create-playlist-error",
+        "Failed to create a new playlist. Please try again."
+      );
+    }
+  } else {
+    renderError(
+      "create-playlist-error",
+      "Please complete all required fields."
+    );
+  }
+};
+
 signupForm.submit(handleSignup);
 loginForm.submit(handleLogin);
 exploreForm.submit(handleExplore);
 logoutBtn.click(handleLogout);
+createPlaylistForm.submit(handleCreatePlaylist);

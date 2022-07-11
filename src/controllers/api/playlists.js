@@ -33,9 +33,7 @@ const createPlaylist = async (req, res) => {
   try {
     const { title, imageUrl } = req.body;
 
-    // FOR NOW: hard code user id
-    // Later, get user id from logged in session object
-    const userId = 1;
+    const userId = req.session.user.id;
 
     await Playlist.create({
       title,

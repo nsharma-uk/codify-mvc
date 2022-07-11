@@ -1,8 +1,10 @@
 const path = require("path");
 
 const renderHomePage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/publicHome.html");
-  return res.sendFile(filePath);
+  return res.render("home", {
+    isLoggedIn: req.session.isLoggedIn,
+    currentPage: "home",
+  });
 };
 
 const renderLoginPage = (req, res) => {
@@ -14,12 +16,11 @@ const renderSignupPage = (req, res) => {
 };
 
 const renderDashboardPage = (req, res) => {
-  return res.render("dashboard");
+  return res.render("dashboard", { currentPage: "dashboard" });
 };
 
 const renderCreatePlaylistPage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/createPlaylist.html");
-  return res.sendFile(filePath);
+  return res.render("createPlaylist");
 };
 
 const renderPlaylistPage = (req, res) => {
