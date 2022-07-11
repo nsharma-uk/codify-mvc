@@ -65,9 +65,21 @@ const renderCreatePlaylistPage = (req, res) => {
   return res.render("createPlaylist");
 };
 
-const renderPlaylistPage = (req, res) => {
-  const filePath = path.join(__dirname, "../../../public/singlePlaylist.html");
-  return res.sendFile(filePath);
+const renderPlaylistPage = async (req, res) => {
+  const playlistId = req.params.id;
+
+  const playlistFromDb = await Playlist.findByPk(playlistId, {
+    include: [
+      {
+        model: PlaylistSong,
+        as: "songs",
+      },
+    ],
+  });
+
+  const playlist = playlistFromDb.get({ plain: true });
+
+  return res.render("playlist", { playlist });
 };
 
 const renderExplorePage = async (req, res) => {
